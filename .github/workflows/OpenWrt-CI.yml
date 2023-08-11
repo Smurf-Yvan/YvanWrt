@@ -52,6 +52,11 @@ jobs:
           CONFIG_TARGET_mediatek=y
           CONFIG_TARGET_mediatek_filogic=y
           CONFIG_TARGET_mediatek_filogic_DEVICE_xiaomi_redmi-router-ax6000=y
+          CONFIG_PACKAGE_autocore-arm=y
+          CONFIG_PACKAGE_ethtool=y
+          # CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_PDNSD is not set
+          # CONFIG_PACKAGE_luci-newapi is not set
+          CONFIG_PACKAGE_pdnsd-alt=y
           # CONFIG_PACKAGE_chinadns-ng is not set
           # CONFIG_PACKAGE_coreutils is not set
           # CONFIG_PACKAGE_dns2socks is not set
@@ -83,7 +88,7 @@ jobs:
           # CONFIG_PACKAGE_luci-app-vsftpd is not set
           # CONFIG_PACKAGE_luci-app-wol is not set
           # CONFIG_PACKAGE_luci-lib-ipkg is not set
-          CONFIG_PACKAGE_luci-theme-argon_armygreen-main=y
+          CONFIG_PACKAGE_luci-theme-argon_armygreen=y
           # CONFIG_PACKAGE_microsocks is not set
           # CONFIG_PACKAGE_nlbwmon is not set
           # CONFIG_PACKAGE_resolveip is not set
