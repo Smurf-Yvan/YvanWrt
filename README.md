@@ -2,11 +2,6 @@
 
 如何使用Github Action编译自己需要的 Openwrt 固件
 
-
-<a href ="https://item.taobao.com/item.htm?spm=a230r.1.14.11.4bb55247rdHEAP&id=702787603594&ns=1&abbucket=17#detail
-"><img src="https://github.com/coolsnowwolf/lede/blob/master/doc/h68k.jpg?raw=true" width=600  /></a>
-
-
 ## 注意
 
 默认登陆IP 192.168.1.1 密码 password
