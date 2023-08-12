@@ -1,4 +1,4 @@
-# 欢迎来到 Lean 的 LEDE 源码仓库
+# 欢迎来到LEDE 源码Github Action编译仓库
 
 如何使用Github Action编译自己需要的 Openwrt 固件
 
