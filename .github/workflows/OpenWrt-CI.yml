@@ -73,6 +73,8 @@ jobs:
           # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Libev_Client is not set
           # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Simple_Obfs is not set
           # CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_Go is not set
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_NONE_Client=y
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_NONE_Server=y
           CONFIG_PACKAGE_kmod-batman-adv=y
           CONFIG_PACKAGE_kmod-crypto-crc32c=y
           CONFIG_PACKAGE_kmod-lib-crc16=y
@@ -97,6 +99,8 @@ jobs:
           # CONFIG_PACKAGE_shadowsocksr-libev-ssr-check is not set
           # CONFIG_PACKAGE_shadowsocksr-libev-ssr-local is not set
           # CONFIG_PACKAGE_shadowsocksr-libev-ssr-redir is not set
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_v2ray-core=y
           # CONFIG_PACKAGE_simple-obfs-client is not set
           # CONFIG_PACKAGE_tcping is not set
           # CONFIG_PACKAGE_vlmcsd is not set
