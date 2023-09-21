@@ -2,8 +2,6 @@ name: OpenWrt-CI
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 20 * * *
 
 permissions:
   contents: read
@@ -129,6 +127,9 @@ jobs:
           # CONFIG_PACKAGE_vlmcsd is not set
           # CONFIG_PACKAGE_wol is not set
           # CONFIG_PACKAGE_xray-core is not set
+          CONFIG_PREINITOPT=y
+          CONFIG_TARGET_PREINIT_BROADCAST="1.1.0.255"
+          CONFIG_TARGET_PREINIT_IP="1.1.0.1"
           #
           # ========================固件定制部分结束========================
           #
