@@ -74,7 +74,7 @@ jobs:
           CONFIG_PACKAGE_coreutils-sort=y
           CONFIG_PACKAGE_dawn=y
           # CONFIG_PACKAGE_etherwake is not set
-          CONFIG_PACKAGE_haproxy=y
+          # CONFIG_PACKAGE_haproxy is not set
           CONFIG_PACKAGE_kmod-batman-adv=y
           CONFIG_PACKAGE_kmod-crypto-crc32c=y
           CONFIG_PACKAGE_kmod-lib-crc16=y
@@ -96,7 +96,7 @@ jobs:
           # CONFIG_PACKAGE_luci-app-ddns is not set
           CONFIG_PACKAGE_luci-app-easymesh=y
           CONFIG_PACKAGE_luci-app-guest-wifi=y
-          CONFIG_PACKAGE_luci-app-haproxy-tcp=y
+          # CONFIG_PACKAGE_luci-app-haproxy-tcp is not set
           # CONFIG_PACKAGE_luci-app-nlbwmon is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui is not set
@@ -113,7 +113,7 @@ jobs:
           CONFIG_PACKAGE_luci-i18n-adblock-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-easymesh-zh-cn=y
           CONFIG_PACKAGE_luci-i18n-guest-wifi-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-haproxy-tcp-zh-cn=y
+          # CONFIG_PACKAGE_luci-i18n-haproxy-tcp-zh-cn is not set
           CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
           # CONFIG_PACKAGE_nlbwmon is not set
           CONFIG_PACKAGE_p910nd=y
