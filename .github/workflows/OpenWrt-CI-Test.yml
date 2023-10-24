@@ -117,6 +117,7 @@ jobs:
           CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
           # CONFIG_PACKAGE_nlbwmon is not set
           CONFIG_PACKAGE_p910nd=y
+          CONFIG_PACKAGE_luci-theme-argon_armygreen=m
           CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
           CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
           # CONFIG_PACKAGE_shadowsocks-rust-sslocal is not set
