@@ -1,4 +1,4 @@
-name: OpenWrt-CI
+name: OpenWrt-CI Test
 
 on:
   workflow_dispatch:
