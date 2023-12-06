@@ -3,8 +3,7 @@ name: OpenWrt-CI Test
 on:
   workflow_dispatch:
 
-permissions:
-  contents: read
+permissions: write-all
 
 jobs:
 
@@ -181,7 +180,7 @@ jobs:
 
       - name: Compress
         run: |
-          zip -r Openwrt_${{ env.SHA }}.zip bin/targets/*
+          zip -r Openwrt_${{ github.run_id }}.zip bin/targets/*
 
       - name: Create Release
         id: create_release
@@ -189,8 +188,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: Openwrt_${{ env.SHA }}
-          release_name: Openwrt_${{ env.SHA }}
+          tag_name: Openwrt_${{ github.run_id }}
+          release_name: Openwrt_${{ github.run_id }}
           draft: false
           prerelease: false
 
@@ -201,6 +200,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: Openwrt_${{ env.SHA }}.zip
-          asset_name: Openwrt_${{ env.SHA }}
+          asset_path: Openwrt_${{ github.run_id }}.zip
+          asset_name: Openwrt_${{ github.run_id }}
           asset_content_type: application/zip
