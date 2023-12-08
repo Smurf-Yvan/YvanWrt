@@ -1,30 +1,14 @@
 # 欢迎来到 Lean 的 LEDE 源码仓库
-
-I18N: [English](README_EN.md) | [简体中文](README.md) | [日本語](README_JA.md)
-
-## 官方讨论群
-如有技术问题需要讨论或者交流，欢迎加入以下群：
-1. QQ 讨论群： Op固件技术研究群 ,号码 891659613 ，加群链接：[点击加入](https://jq.qq.com/?_wv=1027&k=XL8SK5aC "Op固件技术研究群")
-2. TG 讨论群： OP 编译官方大群 ，加群链接：[点击加入](https://t.me/JhKgAA6Hx1 "OP 编译官方大群")
-
-## 软路由介绍
-
-硬酷R2 - N95/N300迷你四网HomeLab服务器
-
-[商品介绍页面 - 硬酷科技（支持花呗）](https://item.taobao.com/item.htm?id=721197662185)
-
-[![r1](doc/r1.jpg)](https://item.taobao.com/item.htm?id=721197662185)
-
+## Lean 大佬的仓库地址：<https://github.com/coolsnowwolf/openwrt>
+如何使用Github Action编译自己需要的 Openwrt 固件
 
 ## 注意
 
-1. **不要用 root 用户进行编译**
-2. 国内用户编译前最好准备好梯子
-3. 默认登陆IP 192.168.1.1 密码 password
+默认登陆IP 192.168.1.1 密码 password
 
 ## 编译命令
 
-1. 首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS
+1. 首先打开 Github Spaces
 
 2. 安装编译依赖
 
@@ -40,50 +24,38 @@ I18N: [English](README_EN.md) | [简体中文](README.md) | [日本語](README_J
    vim wget xmlto xxd zlib1g-dev python3-setuptools
    ```
 
-3. 下载源代码，更新 feeds 并选择配置
+3. 更新 feeds 并选择配置
 
    ```bash
-   git clone https://github.com/coolsnowwolf/lede
-   cd lede
    ./scripts/feeds update -a
    ./scripts/feeds install -a
    make menuconfig
    ```
 
-4. 下载 dl 库，编译固件
-（-j 后面是线程数，第一次编译推荐用单线程）
-
+4. 提取本地自定义固件和默认配置的差异
    ```bash
-   make download -j8
-   make V=s -j1
+   make defconfig
+   ./scripts/diffconfig.sh > diff.config
    ```
 
-本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。
-
-你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！
-
-二次编译：
-
-```bash
-cd lede
-git pull
-./scripts/feeds update -a
-./scripts/feeds install -a
-make defconfig
-make download -j8
-make V=s -j$(nproc)
-```
-
-如果需要重新配置：
-
-```bash
-rm -rf ./tmp && rm -rf .config
-make menuconfig
-make V=s -j$(nproc)
-```
-
-编译完成后输出路径：bin/targets
-
+5. 在 OpenWrt-CI.yml 中添加自定义配置
+   ```bash
+      - name: Generate configuration file
+        run: |
+          rm -f ./.config*
+          touch ./.config
+          cat >> .config <<EOF
+          #
+          # ========================固件定制部分========================
+          #
+          # 删除这一行，粘贴为 diff.config 中的内容，注意对其
+          #
+          # ========================固件定制部分结束========================
+          #
+          EOF
+          sed -i 's/^[ \t]*//g' ./.config
+          make defconfig
+   ```
 ### 如果你使用 WSL/WSL2 进行编译
 
 由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 `make` 前面加上：
@@ -141,21 +113,3 @@ PS > git clone git@github.com:coolsnowwolf/lede.git <your_local_lede_path>
 
 5. 重新加载一下 shell 启动文件 `source ~/.bashrc`，然后输入 `bash` 进入 bash shell，就可以和 Linux 一样正常编译了
 
-## 特别提示
-
-1. 源代码中绝不含任何后门和可以监控或者劫持你的 HTTPS 的闭源软件， SSL 安全是互联网最后的壁垒。安全干净才是固件应该做到的；
-
-2. 想学习 OpenWrt 开发，但是摸不着门道？自学没毅力？基础太差？怕太难学不会？跟着佐大学 OpenWrt 开发入门培训班助你能学有所成
-报名地址：[点击报名](http://forgotfun.org/2018/04/openwrt-training-2018.html "报名")
-
-3. QCA IPQ60xx 开源仓库地址：<https://github.com/coolsnowwolf/openwrt-gl-ax1800>
-
-4. 存档版本仓库地址：<https://github.com/coolsnowwolf/openwrt>
-
-
-
-## 捐贈
-
-如果你觉得此项目对你有帮助，可以捐助我们，以鼓励项目能持续发展，更加完善
-
- ![star](doc/star.png)

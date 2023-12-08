@@ -7,9 +7,9 @@
 #
 name: OpenWrt-CI
 
-on:
-  schedule:
-    - cron: 0 20 * * *
+#on:
+#  schedule:
+#    - cron: 0 20 * * *
 
 permissions:
   contents: read
@@ -56,7 +56,7 @@ jobs:
 
       - name: Compile firmware
         run: |
-          make -j$(nproc) || make -j1 V=s
+          make -j$(nproc) V=s
           echo "======================="
           echo "Space usage:"
           echo "======================="
@@ -91,3 +91,29 @@ jobs:
         with:
           name: OpenWrt_firmware
           path: ./bin/targets/
+
+      - name: Compress
+        run: |
+          zip -r Openwrt_${{ github.run_id }}.zip bin/targets/*
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: Openwrt_${{ github.run_id }}
+          release_name: Openwrt_${{ github.run_id }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: Openwrt_${{ github.run_id }}.zip
+          asset_name: Openwrt_${{ github.run_id }}
+          asset_content_type: application/zip
