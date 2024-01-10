@@ -70,16 +70,12 @@ jobs:
           CONFIG_PACKAGE_batctl-default=y
           CONFIG_PACKAGE_coreutils-sort=y
           CONFIG_PACKAGE_dawn=y
-          # CONFIG_PACKAGE_etherwake is not set
-          # CONFIG_PACKAGE_haproxy is not set
           CONFIG_PACKAGE_kmod-batman-adv=y
           CONFIG_PACKAGE_kmod-crypto-crc32c=y
           CONFIG_PACKAGE_kmod-lib-crc16=y
           CONFIG_PACKAGE_kmod-lib-crc32c=y
           # CONFIG_PACKAGE_kmod-nf-conntrack-netlink is not set
           CONFIG_PACKAGE_kmod-nls-base=y
-          CONFIG_PACKAGE_kmod-usb-core=y
-          CONFIG_PACKAGE_kmod-usb-printer=y
           CONFIG_PACKAGE_libatomic=y
           CONFIG_PACKAGE_libgcrypt=y
           CONFIG_PACKAGE_libgpg-error=y
@@ -90,7 +86,6 @@ jobs:
           CONFIG_PACKAGE_libreadline=y
           # CONFIG_PACKAGE_luci-app-autoreboot is not set
           # CONFIG_PACKAGE_luci-app-ddns is not set
-          # CONFIG_PACKAGE_luci-app-haproxy-tcp is not set
           # CONFIG_PACKAGE_luci-app-nlbwmon is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui is not set
@@ -105,7 +100,7 @@ jobs:
           # CONFIG_PACKAGE_luci-app-wol is not set
           # CONFIG_PACKAGE_luci-i18n-haproxy-tcp-zh-cn is not set
           CONFIG_PACKAGE_openssh-sftp-server=y
-          CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_luci-theme-argon=m
           # CONFIG_PACKAGE_nlbwmon is not set
           CONFIG_PACKAGE_p910nd=y
           CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
