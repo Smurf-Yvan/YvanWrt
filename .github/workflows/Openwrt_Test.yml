@@ -1,10 +1,7 @@
 name: OpenWrt-CI Test
 
 on:
-  schedule:
-    - cron: 0 20 * * *
   workflow_dispatch:
-
 permissions: write-all
 
 jobs:
