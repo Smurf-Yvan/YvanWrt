@@ -84,7 +84,7 @@ jobs:
           CONFIG_PACKAGE_libmbedtls=y
           CONFIG_PACKAGE_libncurses=y
           CONFIG_PACKAGE_libreadline=y
-          CONFIG_PACKAGE_cloudflared=y
+          CONFIG_PACKAGE_cloudflared=m
           # CONFIG_PACKAGE_luci-app-autoreboot is not set
           # CONFIG_PACKAGE_luci-app-ddns is not set
           # CONFIG_PACKAGE_luci-app-nlbwmon is not set
