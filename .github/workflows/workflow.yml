@@ -39,9 +39,9 @@ on:
           - skipped
           - success
       dry_run:
-        description: 'Only log actions, do not perform any delete operations.'
+        description: 'Only log actions, do not perform any delete operations.permissions: write-all'
         required: false
-
+permissions: write-all
 jobs:
   del_runs:
     runs-on: ubuntu-latest
