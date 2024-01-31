@@ -104,7 +104,7 @@ jobs:
           # CONFIG_PACKAGE_luci-i18n-haproxy-tcp-zh-cn is not set
           CONFIG_PACKAGE_openssh-sftp-server=y
           CONFIG_PACKAGE_luci-theme-argon=y
-          CONFIG_PACKAGE_rtty-mbedtls=y
+          CONFIG_PACKAGE_ttyd=y
           # CONFIG_PACKAGE_nlbwmon is not set
           CONFIG_PACKAGE_p910nd=y
           CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
