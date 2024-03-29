@@ -92,11 +92,11 @@ jobs:
           # CONFIG_PACKAGE_luci-app-nlbwmon is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui is not set
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_NONE_Server=y
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Libev_Client is not set
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_NONE_Server is not set
           # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Client is not set
           # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks_Rust_Server is not set
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray is not set
           # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray is not set
           # CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_Go is not set
           # CONFIG_PACKAGE_luci-app-vlmcsd is not set
@@ -107,16 +107,20 @@ jobs:
           CONFIG_PACKAGE_ttyd=y
           # CONFIG_PACKAGE_nlbwmon is not set
           CONFIG_PACKAGE_p910nd=y
-          CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
-          CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
+          # CONFIG_PACKAGE_shadowsocks-libev-ss-local is not set
+          # CONFIG_PACKAGE_shadowsocks-libev-ss-redir is not set
           # CONFIG_PACKAGE_shadowsocks-rust-sslocal is not set
           # CONFIG_PACKAGE_shadowsocks-rust-ssserver is not set
           CONFIG_PACKAGE_terminfo=y
           CONFIG_PACKAGE_umdns=y
-          CONFIG_PACKAGE_v2ray-core=y
+          # CONFIG_PACKAGE_v2ray-core is not set
           # CONFIG_PACKAGE_vlmcsd is not set
           # CONFIG_PACKAGE_wol is not set
           # CONFIG_PACKAGE_xray-core is not set
+          CONFIG_PACKAGE_kmod-inet-diag=y
+          CONFIG_PACKAGE_kmod-netlink-diag=y
+          CONFIG_PACKAGE_kmod-tun=y
+          CONFIG_PACKAGE_iptables-nft=y
           CONFIG_PREINITOPT=y
           CONFIG_TARGET_PREINIT_BROADCAST="1.1.0.200"
           CONFIG_TARGET_PREINIT_IP="1.1.0.1"

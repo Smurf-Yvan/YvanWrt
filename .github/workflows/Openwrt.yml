@@ -1,7 +1,9 @@
-name: OpenWrt-CI Stable
+name: OpenWrt-CI Test
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: 0 20 * * *
 
 permissions: write-all
 
@@ -68,20 +70,15 @@ jobs:
           CONFIG_MBEDTLS_KEY_EXCHANGE_PSK_ENABLED=y
           CONFIG_MBEDTLS_NIST_KW_C=y
           CONFIG_MBEDTLS_RSA_NO_CRT=y
-          CONFIG_PACKAGE_adblock=y
           CONFIG_PACKAGE_batctl-default=y
           CONFIG_PACKAGE_coreutils-sort=y
           CONFIG_PACKAGE_dawn=y
-          # CONFIG_PACKAGE_etherwake is not set
-          # CONFIG_PACKAGE_haproxy is not set
           CONFIG_PACKAGE_kmod-batman-adv=y
           CONFIG_PACKAGE_kmod-crypto-crc32c=y
           CONFIG_PACKAGE_kmod-lib-crc16=y
           CONFIG_PACKAGE_kmod-lib-crc32c=y
           # CONFIG_PACKAGE_kmod-nf-conntrack-netlink is not set
           CONFIG_PACKAGE_kmod-nls-base=y
-          CONFIG_PACKAGE_kmod-usb-core=y
-          CONFIG_PACKAGE_kmod-usb-printer=y
           CONFIG_PACKAGE_libatomic=y
           CONFIG_PACKAGE_libgcrypt=y
           CONFIG_PACKAGE_libgpg-error=y
@@ -90,12 +87,8 @@ jobs:
           CONFIG_PACKAGE_libmbedtls=y
           CONFIG_PACKAGE_libncurses=y
           CONFIG_PACKAGE_libreadline=y
-          CONFIG_PACKAGE_luci-app-adblock=y
           # CONFIG_PACKAGE_luci-app-autoreboot is not set
           # CONFIG_PACKAGE_luci-app-ddns is not set
-          CONFIG_PACKAGE_luci-app-easymesh=y
-          CONFIG_PACKAGE_luci-app-guest-wifi=y
-          # CONFIG_PACKAGE_luci-app-haproxy-tcp is not set
           # CONFIG_PACKAGE_luci-app-nlbwmon is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng is not set
           # CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui is not set
@@ -106,17 +99,14 @@ jobs:
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
           # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Xray is not set
           # CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_Go is not set
-          CONFIG_PACKAGE_luci-app-usb-printer=y
           # CONFIG_PACKAGE_luci-app-vlmcsd is not set
           # CONFIG_PACKAGE_luci-app-wol is not set
-          CONFIG_PACKAGE_luci-i18n-adblock-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-easymesh-zh-cn=y
-          CONFIG_PACKAGE_luci-i18n-guest-wifi-zh-cn=y
           # CONFIG_PACKAGE_luci-i18n-haproxy-tcp-zh-cn is not set
-          CONFIG_PACKAGE_luci-i18n-usb-printer-zh-cn=y
+          CONFIG_PACKAGE_openssh-sftp-server=y
+          CONFIG_PACKAGE_luci-theme-argon=y
+          CONFIG_PACKAGE_ttyd=y
           # CONFIG_PACKAGE_nlbwmon is not set
           CONFIG_PACKAGE_p910nd=y
-          CONFIG_PACKAGE_luci-theme-argon_armygreen=m
           CONFIG_PACKAGE_shadowsocks-libev-ss-local=y
           CONFIG_PACKAGE_shadowsocks-libev-ss-redir=y
           # CONFIG_PACKAGE_shadowsocks-rust-sslocal is not set
@@ -128,7 +118,7 @@ jobs:
           # CONFIG_PACKAGE_wol is not set
           # CONFIG_PACKAGE_xray-core is not set
           CONFIG_PREINITOPT=y
-          CONFIG_TARGET_PREINIT_BROADCAST="1.1.0.255"
+          CONFIG_TARGET_PREINIT_BROADCAST="1.1.0.200"
           CONFIG_TARGET_PREINIT_IP="1.1.0.1"
           #
           # ========================固件定制部分结束========================
