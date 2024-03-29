@@ -170,5 +170,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ${{ github.workspace }}/bin/targets/Openwrt_${{ github.run_id }}.zip
-          asset_name: Openwrt_${{ github.run_id }}
+          asset_name: Openwrt_${{ github.run_id }}.zip
           asset_content_type: application/zip
