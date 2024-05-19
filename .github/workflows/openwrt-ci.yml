@@ -5,11 +5,10 @@
 #
 # Copyright (C) 2020 KFERMercer
 #
-name: OpenWrt-CI
+name: OpenWrt-Releasse
 
 on:
-  schedule:
-    - cron: 0 20 * * *
+  workflow_dispatch:
 
 permissions:
   contents: read

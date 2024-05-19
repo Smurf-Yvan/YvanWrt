@@ -1,33 +1,14 @@
-# 欢迎来到 Lean 的 LEDE 源码仓库
+# 欢迎来到 Lean 的 LEDE 源码仓库 YvanW 的分支
 
-为国产龙芯 LOONGSON SoC loongarch64 / 飞腾 Phytium 腾锐2000 系列架构添加支持
+## Lean 大佬的仓库地址：<https://github.com/coolsnowwolf/openwrt>
 
-I18N: [English](README_EN.md) | [简体中文](README.md) | [日本語](README_JA.md)
+## 此仓库提供Github Action编译方法
 
-## 官方讨论群
-
-如有技术问题需要讨论或者交流，欢迎加入以下群：
-
-1. QQ 讨论群： Op固件技术研究群 ,号码 891659613 ，加群链接：[点击加入](https://jq.qq.com/?_wv=1027&k=XL8SK5aC "Op固件技术研究群")
-2. TG 讨论群： OP 编译官方大群 ，加群链接：[点击加入](https://t.me/JhKgAA6Hx1 "OP 编译官方大群")
-
-## 软路由介绍
-
-硬酷R2 - N95/N300迷你四网HomeLab服务器
-
-[商品介绍页面 - 硬酷科技（支持花呗）](https://item.taobao.com/item.htm?id=721197662185)
-
-[![r1](doc/r1.jpg)](https://item.taobao.com/item.htm?id=721197662185)
-
-## 注意
-
-1. **不要用 root 用户进行编译**
-2. 国内用户编译前最好准备好梯子
-3. 默认登陆IP 192.168.1.1 密码 password
+### 用 Github Action 编译
 
 ## 编译命令
 
-1. 首先装好 Linux 系统，推荐 Debian 11 或 Ubuntu LTS
+1. 首先打开 Github Spaces
 
 2. 安装编译依赖
 
@@ -46,36 +27,35 @@ I18N: [English](README_EN.md) | [简体中文](README.md) | [日本語](README_J
 3. 下载源代码，更新 feeds 并选择配置
 
    ```bash
-   git clone https://github.com/coolsnowwolf/lede
-   cd lede
    ./scripts/feeds update -a
    ./scripts/feeds install -a
    make menuconfig
    ```
 
-4. 下载 dl 库，编译固件
-（-j 后面是线程数，第一次编译推荐用单线程）
-
-   ```bash
-   make download -j8
-   make V=s -j1
-   ```
-
-本套代码保证肯定可以编译成功。里面包括了 R23 所有源代码，包括 IPK 的。
-
-你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！
-
-二次编译：
-
+4. 提取本地自定义固件和默认配置的差异
 ```bash
-cd lede
-git pull
-./scripts/feeds update -a
-./scripts/feeds install -a
 make defconfig
-make download -j8
-make V=s -j$(nproc)
+./scripts/diffconfig.sh > diff.config
 ```
+5. 在 OpenWrt-CI.yml 中添加自定义配置
+```bash
+- name: Generate configuration file
+  run: |
+    rm -f ./.config*
+    touch ./.config
+    cat >> .config <<EOF
+    #
+    # ========================固件定制部分========================
+    #
+    # 删除这一行，粘贴为 diff.config 中的内容，注意对其
+    #
+    # ========================固件定制部分结束========================
+    #
+    EOF
+    sed -i 's/^[ \t]*//g' ./.config
+    make defconfig
+```
+
 
 如果需要重新配置：
 
