@@ -3,7 +3,7 @@ name: OpenWrt-CI
 on:
   workflow_dispatch:
 #  schedule:
-#   - cron: 0 20 * * *
+#   - cron: 0 2 * * 1
 
 permissions: write-all
 
