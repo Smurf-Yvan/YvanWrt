@@ -11,4 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: CPUINFO
-        run: lscpu
+        run: |
+          lscpu
+          lsb_release -a
