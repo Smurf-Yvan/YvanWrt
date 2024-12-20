@@ -6,9 +6,9 @@
 
 - ### 编译命令
 
-1. 首先打开 Github Spaces
+#### 1. 首先打开 Github Spaces
 
-2. 安装编译依赖
+#### 2. 安装编译依赖
 
 
    ```bash
@@ -23,7 +23,7 @@
    uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
    ```
 
-3. 下载源代码，更新 feeds 并选择配置
+#### 3. 下载源代码，更新 feeds 并选择配置
 
    ```bash
    ./scripts/feeds update -a
@@ -31,12 +31,12 @@
    make menuconfig
    ```
 
-4. 提取本地自定义固件和默认配置的差异
+#### 4. 提取本地自定义固件和默认配置的差异
    ```bash
    make defconfig
    ./scripts/diffconfig.sh > diff.config
    ```
-5. 在 OpenWrt-CI.yml 中添加自定义配置
+#### 5. 在 OpenWrt-CI.yml 中添加自定义配置
    ```bash
    - name: Generate configuration file
      run: |
