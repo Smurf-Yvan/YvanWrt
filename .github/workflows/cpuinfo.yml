@@ -1,0 +1,16 @@
+name: CPUINFO
+
+on:
+  workflow_dispatch:
+
+permissions: write-all
+
+jobs:
+  CPUINFO:
+    name: CPUINFO
+    runs-on: ubuntu-latest
+    steps:
+      - name: CPUINFO
+        run: |
+          lscpu
+          lsb_release -a
